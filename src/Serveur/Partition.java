@@ -1,3 +1,4 @@
+package Serveur;
 //représente une partition de musique
 public class Partition {
 	
