@@ -26,5 +26,7 @@ public class Musicien implements IObserverPartition {
 		System.out.println(nom + " a été notifié de l'ajout de la partition "+ partition.getNom());
 	}
 	
-	
+	public String getNom() {
+		return nom;
+	}
 }
