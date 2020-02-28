@@ -12,7 +12,7 @@ public class Musicien implements IObserverPartition {
 	String nom;
 	
 	//liste des partitions
-	ArrayList<Partition> partitions;
+	public ArrayList<Partition> partitions;
 	
 	Musicien(String nom){
 		this.nom = nom;

@@ -15,7 +15,7 @@ public class Serveur {
 	ArrayList<IObserverPartition> observers;
 	
 	//liste des musiciens
-	ArrayList<Musicien> musiciens;
+	public ArrayList<Musicien> musiciens;
 	
 	//liste des partitions
 	ArrayList<Partition> partitions;
