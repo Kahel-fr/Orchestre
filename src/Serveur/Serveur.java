@@ -28,29 +28,32 @@ public class Serveur {
 	}
 	
 	//retourne l'instance unique, la créer si elle n'existe pas encore
-	public Serveur getInstance() {
+	public static Serveur getInstance() {
 		if(instance == null)
 			instance = new Serveur();
 		return instance;
 	}
 	
 	//ajoute une partition
-	void AjouterPartition(Partition partition) {
+	public void AjouterPartition(Partition partition) {
+		//sauvegarde la partition
+		partitions.add(partition);
 		//tout les observers sont notifiés
 		for(IObserverPartition observer : observers)
 			observer.Notify(partition);
 	}
 	
 	//ajoute un musicien
-	void AjouterMusicien(String instrument, String nom) {
+	public void AjouterMusicien(String instrument, String nom) {
 		Musicien musicien = MusicienFactory.Build(instrument, nom);
 		if(musicien != null) {
 			musiciens.add(musicien);
+			observers.add(musicien);
 		}
 	}
 	
 	//enlève un musicien
-	void EnleverMusicien(String nom) {
+	public void EnleverMusicien(String nom) {
 		musiciens.removeIf(new Predicate<Musicien>() {
 			@Override
 			public boolean test(Musicien musicien) {
@@ -60,12 +63,12 @@ public class Serveur {
 	}
 	
 	//retourne le nombre de musiciens
-	int getNombreMusiciens() {
+	public int getNombreMusiciens() {
 		return musiciens.size();
 	}
 	
 	//retourne le nombre de partitions
-	int getNombrePartitions() {
+	public int getNombrePartitions() {
 		return partitions.size();
 	}
 	
